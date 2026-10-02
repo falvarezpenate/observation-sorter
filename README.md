@@ -1,16 +1,16 @@
 # ObservationSorter
 
-ObservationSorter is a Python console application for analyzing observation data stored in CSV files. It lets you load a dataset, inspect it, summarize operational trends, and export useful reports such as total observations by operator and the most common defect categories.
+ObservationSorter is a Python console application for analyzing observation data from CSV files. It helps summarize operational trends by counting observations by operator, identifying common cause codes, and highlighting each operator’s most frequent defect category.
 
 ## Features
 
-- Open an observation CSV file from the command line
-- Preview the imported dataset
+- Load observation data from a CSV file
+- View the imported dataset
 - Count total observations by operator
 - Find the most common cause codes
 - Filter cause-code results by date
-- Identify each operator's most common defect category
-- Save report output as CSV files
+- Identify each operator’s most common defect category
+- Export results to CSV files
 
 ## Project Structure
 
@@ -36,60 +36,44 @@ observation-sorter/
 git clone https://github.com/falvarezpenate/observation-sorter.git
 cd observation-sorter
 python -m venv .venv
-source .venv/bin/activate      # On macOS/Linux
+source .venv/bin/activate   # macOS/Linux
 # or
-.venv\Scripts\activate         # On Windows
+.venv\Scripts\activate     # Windows
 pip install pandas
 ```
 
-## Running the Application
+## Usage
 
 ```bash
 python main.py
 ```
 
-This launches a menu-driven console app with the following options:
-
-1. Open Observation File
-2. View Data
-3. Count Total Observations by Operator
-4. Find Most Common Cause Code
-5. Find Most Common Cause Code by Operator
+The application presents a menu with options to:
+1. Open an observation file
+2. View the dataset
+3. Count observations by operator
+4. Review common cause codes
+5. Review the most common defect by operator
 6. Exit
 
 ## Expected CSV Format
 
-The application expects a CSV file containing at least the columns used in the analysis, such as:
+The script expects CSV data including fields such as:
 
 ```csv
 date,operator,category,proc_ind
 06/01/2024,ALICE,Machine Setup,False
 06/01/2024,BOB,Housekeeping,True
 06/02/2024,ALICE,Lockout/Tagout,False
-06/02/2024,CHARLIE,Unsafe Act,False
 ```
 
-Notes:
-- `date` is used for filtering by date in the format `mm/dd/yyyy`
-- `operator` is used for grouping by employee/operator
-- `category` holds the cause-code or defect category
-- `proc_ind` indicates whether the observation is a procedural item (`True`/`False`)
+## Output
 
-## Example Workflow
-
-1. Run `python main.py`
-2. Choose option `1` to open your CSV file
-3. View the dataset or generate reports
-4. Save the generated results as CSV files when prompted
-
-## Output Files
-
-When you choose to save a report, the app writes CSV files to the `output/` directory using names such as:
-
+Generated reports can be saved to the `output/` directory as CSV files, such as:
 - `operator_statistics.csv`
 - `cause_code_statistics.csv`
 - `most_common_operator_defects.csv`
 
-## Notes
+## License
 
-This project is designed as a simple data-analysis utility for observation records and is intended to be easy to extend. If you want to add features such as drag-and-drop CSV support, more advanced filtering, or a GUI, this codebase is a good starting point.
+This project is provided as-is for internal or personal use.
