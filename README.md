@@ -12,19 +12,6 @@ ObservationSorter is a Python console application for analyzing observation data
 - Identify each operator’s most common defect category
 - Export results to CSV files
 
-## Project Structure
-
-```text
-observation-sorter/
-├── main.py
-├── README.md
-├── output/
-├── src/
-│   ├── menu.py
-│   └── observationSorter.py
-└── .gitignore
-```
-
 ## Requirements
 
 - Python 3.9+
@@ -61,10 +48,9 @@ The application presents a menu with options to:
 The script expects CSV data including fields such as:
 
 ```csv
-date,operator,category,proc_ind
-06/01/2024,ALICE,Machine Setup,False
-06/01/2024,BOB,Housekeeping,True
-06/02/2024,ALICE,Lockout/Tagout,False
+observation_id,PR,batch_id,prod_group,item_id,category,quantity,site_found,dept_found,operation,station,operator,description,proc_ind,date,rework
+10001,PR-001112223,52050623,NE.07,7250X-00012-0001,Wire Termination,3,SDAC,DRA,NE.WR,DRA-1,Flavio,Not enough brush showing,false,08/24/2026,0.25
+
 ```
 
 ## Output
@@ -74,6 +60,3 @@ Generated reports can be saved to the `output/` directory as CSV files, such as:
 - `cause_code_statistics.csv`
 - `most_common_operator_defects.csv`
 
-## License
-
-This project is provided as-is for internal or personal use.
